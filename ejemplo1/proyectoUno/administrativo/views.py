@@ -45,3 +45,9 @@ def listadoEstudiantesDos(request):
     'numero_estudiantes': len(estudiantes),
     'mis_numeros_telefonicos': mis_numeros_telefonicos}
     return render(request, 'listadoEstudiantesDos.html', informacion_template)
+
+def listadoEstudiantesTelefono(request):
+    telefonos = NumeroTelefonico.objects.all()
+    mititulo = "Listado de números telefónicos de mi aplicación"
+    informacion_template = {'telefonos': telefonos, 'numero_telefonicos': len(telefonos), 'mititulo': mititulo}
+    return render(request, 'listadoTelefonos.html', informacion_template)

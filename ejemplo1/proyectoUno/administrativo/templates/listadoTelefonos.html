@@ -1,0 +1,15 @@
+<h3>{{ mititulo }}</h3>
+Número de teléfonos {{ numero_telefonicos }}
+<hr>
+<br />
+
+<ul>
+
+    {% for numero in telefonos %}
+
+    <li>{{ numero.estudiante.id }} - {{ numero.estudiante.nombre }} - {{ numero.telefono }}</li>
+    {% endfor %}
+
+</ul>
+
+<hr>
