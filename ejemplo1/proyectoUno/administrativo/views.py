@@ -51,3 +51,15 @@ def listadoEstudiantesTelefono(request):
     mititulo = "Listado de números telefónicos de mi aplicación"
     informacion_template = {'telefonos': telefonos, 'numero_telefonicos': len(telefonos), 'mititulo': mititulo}
     return render(request, 'listadoTelefonos.html', informacion_template)
+
+def listadoCantidadTelefonos(request):
+    estudiantes = Estudiante.objects.all()
+    estudiantes_con_conteo = estudiantes.annotate(cantidad_telefonos=('numerostelefonicos__count'))
+    print(estudiantes_con_conteo)
+    contexto = {
+        'estudiantes': estudiantes_con_conteo,
+        'numero_estudiantes': len(estudiantes),
+        'mititulo': "Listado de Estudiantes y Cantidad de Teléfonos"
+    }
+
+    return render(request, 'listadoConteoTelefonos.html', contexto) 

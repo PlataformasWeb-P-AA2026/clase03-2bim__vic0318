@@ -1,10 +1,9 @@
-
 <h3>Datos de estudiante</h3>
 
 <p><b>Nombre:</b>{{estudiante.nombre}}</p>
 <p><b>Apellido:</b>{{estudiante.apellido}}</p>
 <p><b>Cédula:</b>{{estudiante.cedula}}</p>
+<p><b>Pais:</b> {% if estudiante.pais %}{{ estudiante.pais.nombre }}{% else %}Sin país asignado{% endif %}</p>
 
-<br/>
+<br />
 [<a href="{% url 'index' %}">inicio</a>]
-
